@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+HTTPリクエスト単体テストを実施するための環境設定
+-->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- 環境設定ファイルの読み込み -->
+  <config-file file="nablarch/test/http-request-test/http-request-test.config"/>
+
+  <component name="httpTestConfiguration"
+      class="nablarch.test.core.http.HttpTestConfiguration">
+    <property name="webBaseDir" value="${nablarch.httpTestConfiguration.webBaseDir}" />
+    <property name="jsTestResourceDir" value="${nablarch.httpTestConfiguration.jsTestResourceDir}" />
+
+    <!-- セッションに格納する情報 -->
+    <property name="sessionInfo">
+      <map>
+        <entry key="commonHeaderLoginUserName"
+               value="${nablarch.httpTestConfiguration.sessionInfo.commonHeaderLoginUserName}" />
+        <entry key="commonHeaderLoginDate"
+               value="${nablarch.httpTestConfiguration.sessionInfo.commonHeaderLoginDate}" />
+      </map>
+    </property>
+
+    <!-- Htmlチェックツールの設定ファイルパス -->
+    <property name="htmlCheckerConfig"
+              value="${nablarch.httpTestConfiguration.htmlCheckerConfig}" />
+
+    <!-- Htmlチェックツールを実行するか否かの設定 -->
+    <property name="checkHtml" value="${nablarch.httpTestConfiguration.checkHtml}" />
+
+    <!-- ダンプディレクトリへコピーされるHTMLリソースの拡張子。 -->
+    <property name="htmlResourcesExtensionList">
+      <list>
+        <value>css</value>
+        <value>jpg</value>
+        <value>js</value>
+        <value>less</value>
+        <value>png</value>
+        <value>template</value>
+        <value>woff</value>
+        <value>eot</value>
+        <value>svg</value>
+        <value>ttf</value>
+      </list>
+    </property>
+
+    <!-- ダンプディレクトリへコピーされるHTMLリソースのルートディレクトリ(ダンプディレクトリからの相対パス)。 -->
+    <property name="htmlResourcesRoot" value="${nablarch.httpTestConfiguration.htmlResourcesRoot}" />
+    <property name="backup" value="${nablarch.httpTestConfiguration.backup}" />
+    <property name="htmlResourcesCharset" value="${nablarch.httpTestConfiguration.htmlResourcesCharset}" />
+    
+    <!-- ダンプHTMLへの可変項目の出力可否 -->
+    <property name="dumpVariableItem" value="${nablarch.httpTestConfiguration.dumpVariableItem}" />
+    
+    <property name="ignoreHtmlResourceDirectory">
+      <list>
+        <value>.svn</value>
+      </list>
+    </property>
+
+    <property name="tempDirectory" value="${nablarch.httpTestConfiguration.tempDirectory}" />
+  </component>
+</component-configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- マルチパートリクエスト読み込み機能の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+  <!-- マルチパートハンドラ -->
+  <component name="multipartHandler" class="nablarch.fw.web.upload.MultipartHandler">
+    <property name="uploadSettings">
+      <component class="nablarch.fw.web.upload.UploadSettings">
+        <property name="autoCleaning" value="${nablarch.uploadSettings.autoCleaning}" />
+        <property name="contentLengthLimit" value="${nablarch.uploadSettings.contentLengthLimit}" />
+      </component>
+    </property>
+  </component>
+</component-configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- サービス提供可否判定機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+
+  <!-- データベーストランザクション管理クラスの設定 -->
+  <component name="serviceAvailabilityDbManager"
+             class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+    <property name="dbTransactionName" value="serviceAvailability"/>
+    <!-- トランザクションファクトリ -->
+    <property name="transactionFactory" ref="transactionFactory"/>
+    <!-- コネクションファクトリ -->
+    <property name="connectionFactory" ref="connectionFactory"/>
+  </component>
+
+</component-configuration>

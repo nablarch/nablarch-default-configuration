@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- メッセージ管理機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+  <!-- 文字列リソースのロードモジュール -->
+  <component name="stringResourceLoader"
+             class="nablarch.core.message.BasicStringResourceLoader">
+    <property name="dbManager" ref="defaultDbTransactionManager"/>
+    <!-- メッセージリソーステーブル名 -->
+    <property name="tableName" value="${nablarch.messageTable.tableName}"/>
+    <!-- メッセージリソーステーブル IDカラム名 -->
+    <property name="idColumnName" value="${nablarch.messageTable.idColumnName}"/>
+    <!-- メッセージリソーステーブル 言語カラム名 -->
+    <property name="langColumnName" value="${nablarch.messageTable.langColumnName}"/>
+    <!-- メッセージリソーステーブル メッセージカラム名 -->
+    <property name="valueColumnName" value="${nablarch.messageTable.valueColumnName}"/>
+  </component>
+
+  <!-- 文字列リソースのキャッシュ -->
+  <component name="stringResourceCache"
+             class="nablarch.core.cache.BasicStaticDataCache">
+    <property name="loader" ref="stringResourceLoader"/>
+    <!-- 初期ロード -->
+    <property name="loadOnStartup" value="${nablarch.stringResourceCache.loadOnStartup}"/>
+  </component>
+
+  <!-- 文字列リソースの保持クラス -->
+  <component name="stringResourceHolder"
+             class="nablarch.core.message.StringResourceHolder">
+    <property name="stringResourceCache" ref="stringResourceCache"/>
+  </component>
+</component-configuration>

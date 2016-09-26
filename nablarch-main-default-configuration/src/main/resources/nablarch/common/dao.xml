@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+  <!-- コンポーネント名="daoContextFactory"で、nablarch.common.dao.DaoContextFactoryの実装クラスを設定する。 -->
+  <component name="daoContextFactory" class="nablarch.common.dao.BasicDaoContextFactory">
+    <!-- sequenceIdGeneratorにシーケンスID採番用のクラスを設定する。 このプロパティに設定されたコンポーネントは、SequenceGeneratorが設定された自動採番カラムで使用される。 -->
+    <property name="sequenceIdGenerator">
+      <component class="nablarch.common.idgenerator.SequenceIdGenerator" />
+    </property>
+  </component>
+</component-configuration>

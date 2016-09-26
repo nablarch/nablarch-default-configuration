@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- リクエストマッピング機能の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+  <!-- パッケージマッピングの設定 -->
+  <component name="packageMapping"
+             class="nablarch.fw.web.handler.HttpRequestJavaPackageMapping">
+    <property name="baseUri" value="/action/"/>
+    <property name="basePackage" value="${nablarch.commonProperty.basePackage}"/>
+  </component>
+
+  <!-- スタイルシートマッピングの設定 -->
+  <component name="cssMapping"
+             class="nablarch.fw.web.handler.ResourceMapping">
+    <property name="baseUri" value="/"/>
+    <property name="basePath" value="servlet:///"/>
+  </component>
+
+  <!-- javascriptマッピングの設定 -->
+  <component name="jsMapping"
+             class="nablarch.fw.web.handler.ResourceMapping">
+    <property name="baseUri" value="/"/>
+    <property name="basePath" value="servlet:///"/>
+  </component>
+
+  <!-- imgマッピングの設定 -->
+  <component name="imgMapping"
+             class="nablarch.fw.web.handler.ResourceMapping">
+    <property name="baseUri" value="/"/>
+    <property name="basePath" value="servlet:///"/>
+  </component>
+</component-configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 日付用の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- 業務日付取得コンポーネントの設定 -->
+  <import file="nablarch/core/date/business-date.xml"/>
+
+  <!-- システム日時取得コンポーネントの設定 -->
+  <import file="nablarch/core/date/system-date.xml"/>
+
+</component-configuration>

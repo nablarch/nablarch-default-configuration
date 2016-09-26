@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 認可チェック機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+  <!-- 認可チェック機能の本体-->
+  <import file="nablarch/common/permission/permission-factory.xml"/>
+
+  <!-- 認可チェックハンドラ -->
+  <component name="permissionCheckHandler"
+             class="nablarch.common.permission.PermissionCheckHandler">
+    <property name="permissionFactory" ref="permissionFactory"/>
+    <property name="ignoreRequestIds" value="${nablarch.permissionCheck.ignoreRequestIds}" />
+    <!-- 内部リクエストIDを利用して認可チェックを行う -->
+    <property name="usesInternalRequestId" value="${nablarch.permissionCheck.useInternalRequestId}" />
+  </component>
+
+</component-configuration>

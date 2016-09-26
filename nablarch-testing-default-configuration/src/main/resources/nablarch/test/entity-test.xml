@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- エンティティテスト設定 -->
+  <component name="entityTestConfiguration" class="nablarch.test.core.entity.EntityTestConfiguration">
+    <property name="maxMessageId" value="${nablarch.lengthValidator.maxMessageId}"/>
+    <property name="maxAndMinMessageId" value="${nablarch.lengthValidator.maxAndMinMessageId}"/>
+    <property name="fixLengthMessageId" value="${nablarch.lengthValidator.fixLengthMessageId}"/>
+    <property name="underLimitMessageId" value="${nablarch.lengthValidator.maxAndMinMessageId}"/>
+    <property name="emptyInputMessageId" value="${nablarch.requiredValidator.messageId}"/>
+    <property name="characterGenerator">
+      <component name="characterGenerator"
+                 class="nablarch.test.core.util.generator.BasicJapaneseCharacterGenerator"/>
+    </property>
+  </component>
+
+
+</component-configuration>

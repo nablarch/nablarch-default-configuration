@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- レジューム機能の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+
+  <!-- ファイル入力時のレジューム設定（レジューム機能を無効にする） -->
+  <component name="resumePointManager"
+             class="nablarch.fw.reader.ResumePointManager">
+    <property name="resumable" value="false" />
+  </component>
+
+
+</component-configuration>

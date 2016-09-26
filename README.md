@@ -1,0 +1,2 @@
+nablarch-default-configuration
+================================

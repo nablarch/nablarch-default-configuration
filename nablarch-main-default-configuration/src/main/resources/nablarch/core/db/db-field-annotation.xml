@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- データベースへの値の自動設定機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- 現在日時設定ハンドラで使用する。 -->
+  <import file="nablarch/core/date/system-date.xml"/>
+
+  <!-- 現在日時設定ハンドラ -->
+  <import file="nablarch/core/date.xml" />
+  <component name="currentDateTimeAnnotationHandler"
+             class="nablarch.core.db.statement.autoproperty.CurrentDateTimeAnnotationHandler" autowireType="None">
+    <property name="dateProvider" ref="systemTimeProvider"/>
+    <property name="dateFormat" value="${nablarch.currentDateTimeAnnotationHandler.dateFormat}"/>
+  </component>
+
+  <!-- ユーザID設定ハンドラ -->
+  <component name="userIdAnnotationHandler"
+             class="nablarch.core.db.statement.autoproperty.UserIdAnnotationHandler" autowireType="None"/>
+
+  <!-- リクエストID設定ハンドラ -->
+  <component name="requestIdAnnotationHandler"
+             class="nablarch.core.db.statement.autoproperty.RequestIdAnnotationHandler" autowireType="None"/>
+
+  <!-- フィールドアノテーションハンドラの設定 -->
+  <list name="fieldAnnotationHandler">
+    <component-ref name="currentDateTimeAnnotationHandler"/>
+    <component-ref name="userIdAnnotationHandler"/>
+    <component-ref name="requestIdAnnotationHandler"/>
+    <!--<component-ref name="executionIdAnnotationHandler"/>-->
+  </list>
+</component-configuration>

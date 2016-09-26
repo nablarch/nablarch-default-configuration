@@ -1,0 +1,26 @@
+// -*- mode: groovy; coding: utf-8 -*-
+
+
+/**
+ * クラス単体テスト、リクエスト単体テストを実施する際のデフォルト設定を提供する。
+ */
+
+
+version = '1.0.2'
+
+dependencies {
+  // NAF,NTFは個別PJで明示的にcompile,testスコープに入れてもらうので、
+  // ここではprovidedスコープにして推移的に依存関係が遷移しないようにする。
+  provided (
+          'com.nablarch.profile:nablarch-all-in-one:5u6',
+          'com.nablarch.framework:nablarch-testing:1.0.6'
+  )
+
+  testRuntime(
+          project(':nablarch-main-default-configuration'),
+          'com.oracle:ojdbc6:11.2.0.2.0',
+          'com.oracle:ucp:11.2.0.3.0'
+  )
+}
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  リクエストスレッドループハンドラのテスト用設定
+-->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!--
+    リクエストスレッドループハンドラを、要求データを一回だけ処理するハンドラに置き換え。
+    これにより、リクエスト単体ではセットアップした要求データを処理し終わると常駐バッチは終了する。
+    (リクエストスレッドループハンドラを使用するとテストは永遠に終了しない。)
+  -->
+  <component name="requestThreadLoopHandler"
+             class="nablarch.test.OneShotLoopHandler"/>
+
+</component-configuration>

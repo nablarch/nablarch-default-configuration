@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+        
+  <component name="sessionManager" class="nablarch.common.web.session.SessionManager">
+    <property name="defaultStoreName" value="${nablarch.sessionManager.defaultStoreName}" />
+    <property name="availableStores">
+      <list>
+        <!-- HTTPセッション上に保存するセッションストア -->
+        <component class="nablarch.common.web.session.store.HttpSessionStore">
+          <property name="expires" value="${nablarch.sessionManager.expires}"/>
+        </component>
+        <!-- DB上に保存するセッションストア -->
+        <component-ref name="dbStore" />
+        <!-- hiddenタグ上に保存するセッションストア -->
+        <component-ref name="hiddenStore" />
+      </list>
+    </property>
+  </component>
+    
+  <component name="dbStore" class="nablarch.common.web.session.store.DbStore">
+    <property name="expires" value="${nablarch.sessionManager.expires}"/>
+    <property name="dbManager">
+      <component class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+        <property name="dbTransactionName" value="dbStore" />
+        <property name="transactionFactory" ref="transactionFactory" />
+        <property name="connectionFactory" ref="connectionFactory" />
+      </component>
+    </property>
+  </component>
+
+  <component name="hiddenStore" class="nablarch.common.web.session.store.HiddenStore">
+    <property name="expires" value="${nablarch.sessionManager.expires}"/>
+    <property name="stateEncoder">
+      <component class="nablarch.common.web.session.encoder.JavaSerializeEncryptStateEncoder">
+        <property name="encryptor" ref="hiddenStoreEncryptor" />
+      </component>
+    </property>
+  </component>
+
+  <!-- HIDDENストアの暗号化に使用するコンポーネント -->
+  <component name="hiddenStoreEncryptor" class="nablarch.common.encryption.AesEncryptor" />
+
+  
+  <component name="sessionStoreHandler" class="nablarch.common.web.session.SessionStoreHandler">
+    <property name="sessionManager" ref="sessionManager"/>
+    <property name="cookieName"   value="${nablarch.sessionStoreHandler.cookieName}"/>
+    <property name="cookiePath"   value="${nablarch.sessionStoreHandler.cookiePath}"/>
+    <property name="cookieSecure" value="${nablarch.sessionStoreHandler.cookieSecure}"/>
+  </component>
+</component-configuration>

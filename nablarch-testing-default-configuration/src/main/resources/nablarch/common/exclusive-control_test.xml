@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+排他制御のテスト用設定
+
+排他制御のテストは取引単体で実施する。
+リクエスト単体時には、リクエストパラメータに排他制御情報を記載しないようにするため、
+排他制御テーブルへの排他制御情報追加/削除以外は空実装となっているモック実装に差し替える。
+-->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <component name="exclusiveControlManager"
+             class="please.change.me.common.exclusivecontrol.MockExclusiveControlManager">
+    <property name="delegate">
+      <component class="nablarch.common.exclusivecontrol.BasicExclusiveControlManager">
+        <property name="optimisticLockErrorMessageId"
+                  value="${nablarch.exclusiveControlManager.optimisticLockErrorMessageId}"/>
+      </component>
+    </property>
+  </component>
+
+</component-configuration>

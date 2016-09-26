@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 日付用の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- 業務日付取得コンポーネントの設定 -->
+  <component name="businessDateProvider" class="nablarch.core.date.BasicBusinessDateProvider">
+    <property name="tableName" value="${nablarch.businessDateTable.tableName}" />
+    <property name="segmentColumnName" value="${nablarch.businessDateTable.segmentColumnName}" />
+    <property name="dateColumnName" value="${nablarch.businessDateTable.dateColumnName}" />
+    <property name="defaultSegment" value="${nablarch.businessDateProvider.defaultSegment}" />
+    <property name="dbTransactionManager" ref="defaultDbTransactionManager" />
+  </component>
+
+
+</component-configuration>

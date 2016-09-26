@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 認可チェック機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+
+  <!-- 認可モジュール -->
+  <component name="permissionFactory"
+             class="nablarch.common.permission.BasicPermissionFactory">
+    <property name="dbManager" ref="permissionCheckDbManager"/>
+    <property name="groupTableSchema">
+      <!-- GroupTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.GroupTableSchema">
+        <property name="tableName" value="${nablarch.ugroupTable.name}"/>
+        <property name="groupIdColumnName" value="${nablarch.ugroupTable.groupIdColumnName}"/>
+      </component>
+    </property>
+    <property name="systemAccountTableSchema">
+      <!-- SystemAccountTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.SystemAccountTableSchema">
+        <property name="tableName" value="${nablarch.systemAccountTable.name}"/>
+        <property name="userIdColumnName" value="${nablarch.systemAccountTable.userIdColumnName}"/>
+        <property name="userIdLockedColumnName" value="${nablarch.systemAccountTable.userIdLockedColumnName}"/>
+        <property name="effectiveDateFromColumnName" value="${nablarch.systemAccountTable.effectiveDateFromColumnName}"/>
+        <property name="effectiveDateToColumnName" value="${nablarch.systemAccountTable.effectiveDateToColumnName}"/>
+      </component>
+    </property>
+    <property name="groupSystemAccountTableSchema">
+      <!-- GroupSystemAccountTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.GroupSystemAccountTableSchema">
+        <property name="tableName" value="${nablarch.ugroupSystemAccountTable.name}"/>
+        <property name="groupIdColumnName" value="${nablarch.ugroupSystemAccountTable.groupIdColumnName}"/>
+        <property name="userIdColumnName" value="${nablarch.ugroupSystemAccountTable.userIdColumnName}"/>
+        <property name="effectiveDateFromColumnName" value="${nablarch.ugroupSystemAccountTable.effectiveDateFromColumnName}"/>
+        <property name="effectiveDateToColumnName" value="${nablarch.ugroupSystemAccountTable.effectiveDateToColumnName}"/>
+      </component>
+    </property>
+    <property name="permissionUnitTableSchema">
+      <!-- PermissionUnitTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.PermissionUnitTableSchema">
+        <property name="tableName" value="${nablarch.permissionUnitTable.name}"/>
+        <property name="permissionUnitIdColumnName" value="${nablarch.permissionUnitTable.permissionUnitIdColumnName}"/>
+      </component>
+    </property>
+    <property name="permissionUnitRequestTableSchema">
+      <!-- PermissionUnitRequestTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.PermissionUnitRequestTableSchema">
+        <property name="tableName" value="${nablarch.permissionUnitRequestTable.name}"/>
+        <property name="permissionUnitIdColumnName" value="${nablarch.permissionUnitRequestTable.permissionUnitIdColumnName}"/>
+        <property name="requestIdColumnName" value="${nablarch.permissionUnitRequestTable.requestIdColumnName}"/>
+      </component>
+    </property>
+    <property name="groupAuthorityTableSchema">
+      <!-- GroupAuthorityTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.GroupAuthorityTableSchema">
+        <property name="tableName" value="${nablarch.ugroupAuthorityTable.name}"/>
+        <property name="groupIdColumnName" value="${nablarch.ugroupAuthorityTable.groupIdColumnName}"/>
+        <property name="permissionUnitIdColumnName" value="${nablarch.ugroupAuthorityTable.permissionUnitIdColumnName}"/>
+      </component>
+    </property>
+    <property name="systemAccountAuthorityTableSchema">
+      <!-- SystemAccountAuthorityTableSchemaの設定 -->
+      <component class="nablarch.common.permission.schema.SystemAccountAuthorityTableSchema">
+        <property name="tableName" value="${nablarch.systemAccountAuthorityTable.name}"/>
+        <property name="userIdColumnName" value="${nablarch.systemAccountAuthorityTable.userIdColumnName}"/>
+        <property name="permissionUnitIdColumnName" value="${nablarch.systemAccountAuthorityTable.permissionUnitIdColumnName}"/>
+      </component>
+    </property>
+    <property name="businessDateProvider" ref="businessDateProvider"/>
+  </component>
+
+  <!--
+  データベーストランザクション管理クラスの設定(PermissionCheck)
+  -->
+  <component name="permissionCheckDbManager"
+             class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+    <property name="dbTransactionName" value="PermissionCheck"/>
+    <!-- トランザクションファクトリ -->
+    <property name="transactionFactory" ref="transactionFactory"/>
+    <!-- コネクションファクトリ -->
+    <property name="connectionFactory" ref="connectionFactory"/>
+  </component>
+</component-configuration>

@@ -1,0 +1,4 @@
+デフォルト値は
+nablarch-archetypeのほうに入れてください。
+
+nablarch-archetype/maven-archetypes-template/tools/app-config/アプリケーション設定一覧表_preset.xls

@@ -1,0 +1,4 @@
+rootProject.name = 'nablarch-default-configuration'
+
+include 'nablarch-main-default-configuration', 'nablarch-testing-default-configuration'
+

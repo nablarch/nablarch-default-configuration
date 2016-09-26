@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- システムで使用できる文字集合の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- 文字集合定義 -->
+  <config-file file="nablarch/core/validation/charset-definition.config"/>
+
+  <!-- メッセージID定義 -->
+  <config-file file="nablarch/core/validation/charset-definition-message-id.config"/>
+
+  <!-- システム許容文字集合の定義 -->
+  <!-- システム許容文字集合全体 -->
+  <component name="システム許容文字" class="nablarch.core.validation.validator.unicode.CompositeCharsetDef">
+    <property name="charsetDefList">
+      <list>
+        <component-ref name="ASCII文字"/>
+        <component-ref name="半角カナ"/>
+        <component-ref name="halfWidthSpace"/>
+        <component-ref name="全角文字"/>
+      </list>
+    </property>
+  </component>
+
+  <!-- 全角文字 -->
+  <component name="全角文字" class="nablarch.core.validation.validator.unicode.CompositeCharsetDef">
+    <property name="charsetDefList">
+      <list>
+        <component-ref name="第1水準漢字"/>
+        <component-ref name="全角ひらがな"/>
+        <component-ref name="全角カタカナ"/>
+        <component-ref name="第2水準漢字"/>
+        <component-ref name="全角英字"/>
+        <component-ref name="全角数字"/>
+        <component-ref name="第1水準全角記号"/>
+        <component-ref name="全角スペース"/>
+        <component-ref name="全角罫線"/>
+        <component-ref name="全角ギリシャ文字"/>
+        <component-ref name="全角ロシア文字"/>
+        <component-ref name="NEC選定IBM拡張"/>
+        <component-ref name="NEC特殊文字"/>
+        <component-ref name="IBM拡張文字"/>
+      </list>
+    </property>
+    <property name="messageId" value="${nablarch.zenkakuCharset.messageId}"/>
+  </component>
+
+
+  <!-- 半角英数 -->
+  <component name="半角英数" class="nablarch.core.validation.validator.unicode.CompositeCharsetDef">
+    <property name="charsetDefList">
+      <list>
+        <component-ref name="半角数字"/>
+        <component-ref name="半角英小文字"/>
+        <component-ref name="半角英大文字"/>
+      </list>
+    </property>
+    <property name="messageId" value="${nablarch.alnumCharset.messageId}"/>
+  </component>
+
+  <!-- ASCII文字 -->
+  <component name="ASCII文字" class="nablarch.core.validation.validator.unicode.CompositeCharsetDef">
+    <property name="charsetDefList">
+      <list>
+        <component-ref name="半角英数"/>
+        <component-ref name="ASCII記号"/>
+      </list>
+    </property>
+    <property name="messageId" value="${nablarch.asciiCharset.messageId}"/>
+  </component>
+
+  <!-- 半角スペース -->
+  <!--（この文字集合は他の文字集合と組み合わせて使用する。単独で使用することは想定していない） -->
+  <component name="halfWidthSpace" class="nablarch.core.validation.validator.unicode.RangedCharsetDef">
+    <property name="startCodePoint" value="U+0020" />
+    <property name="endCodePoint" value="U+0020" />
+  </component>
+
+  <!-- 半角数字 -->
+  <component name="半角数字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.numericCharset.allowedCharacters}"/>
+    <property name="messageId" value="${nablarch.numericCharset.messageId}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角カタカナ -->
+  <component name="全角カタカナ" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.strictZenkakuKatakanaCharset.allowedCharacters}"/>
+    <property name="messageId" value="${nablarch.zenkakuKatakanaCharset.messageId}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角英字 -->
+  <component name="全角英字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuAlphaCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角数字 -->
+  <component name="全角数字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuNumCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角ギリシャ文字 -->
+  <component name="全角ギリシャ文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuGreekCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角ロシア文字 -->
+  <component name="全角ロシア文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuRussianCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角ひらがな -->
+  <component name="全角ひらがな" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuHiraganaCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角記号 -->
+  <component name="第1水準全角記号" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.jisSymbolCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる全角罫線 -->
+  <component name="全角罫線" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuKeisenCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第1水準に含まれる漢字 -->
+  <component name="第1水準漢字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.level1KanjiCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- JIS第2水準に含まれる漢字 -->
+  <component name="第2水準漢字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.level2KanjiCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- 全角スペース -->
+  <component name="全角スペース" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.zenkakuSpaceCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- 半角英小文字 -->
+  <component name="半角英小文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.lowerAlphabetCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- 半角英大文字 -->
+  <component name="半角英大文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.upperAlphabetCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- ASCII記号 -->
+  <component name="ASCII記号" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.asciiSymbolCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- 半角カナ -->
+  <component name="半角カナ" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.hankakuKanaCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- NEC選定IBM拡張 -->
+  <component name="NEC選定IBM拡張" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.necExtendedCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- NEC特殊文字 -->
+  <component name="NEC特殊文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.necSymbolCharset.allowedCharacters}"/>
+  </component>
+
+  <!-- IBM拡張文字 -->
+  <component name="IBM拡張文字" class="nablarch.core.validation.validator.unicode.LiteralCharsetDef">
+    <property name="allowedCharacters" value="${nablarch.ibmExtendedCharset.allowedCharacters}"/>
+  </component>
+
+
+</component-configuration>

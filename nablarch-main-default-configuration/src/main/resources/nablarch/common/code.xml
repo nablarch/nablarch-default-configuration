@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- コード機能の設定 -->
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- コードをロードするクラス -->
+  <component name="codeLoader"
+             class="nablarch.common.code.BasicCodeLoader">
+    <!-- データベースからコードをロードする際に使用するデータベース設定-->
+    <property name="dbManager">
+      <component class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+        <property name="dbTransactionName" value="code"/>
+        <!-- トランザクションファクトリ -->
+        <property name="transactionFactory" ref="transactionFactory"/>
+        <!-- コネクションファクトリ -->
+        <property name="connectionFactory" ref="connectionFactory"/>
+      </component>
+    </property>
+
+    <!-- コードパターンテーブルのスキーマ情報 -->
+    <property name="codePatternSchema">
+      <component class="nablarch.common.code.schema.CodePatternSchema">
+        <property name="tableName" value="${nablarch.codePatternTable.name}"/>
+        <property name="idColumnName" value="${nablarch.codePatternTable.idColumnName}"/>
+        <property name="valueColumnName" value="${nablarch.codePatternTable.valueColumnName}"/>
+        <property name="patternColumnNames" value="${nablarch.codePatternTable.patternColumnNames}"/>
+      </component>
+    </property>
+
+    <!-- コード名称テーブルのスキーマ情報 -->
+    <property name="codeNameSchema">
+      <component class="nablarch.common.code.schema.CodeNameSchema">
+        <property name="tableName" value="${nablarch.codeNameTable.name}"/>
+        <property name="idColumnName" value="${nablarch.codeNameTable.idColumnName}"/>
+        <property name="valueColumnName" value="${nablarch.codeNameTable.valueColumnName}"/>
+        <property name="langColumnName" value="${nablarch.codeNameTable.langColumnName}"/>
+        <property name="sortOrderColumnName" value="${nablarch.codeNameTable.sortOrderColumnName}"/>
+        <property name="nameColumnName" value="${nablarch.codeNameTable.nameColumnName}"/>
+        <property name="shortNameColumnName" value="${nablarch.codeNameTable.shortNameColumnName}"/>
+        <property name="optionNameColumnNames" value="${nablarch.codeNameTable.optionNameColumnNames}"/>
+      </component>
+    </property>
+  </component>
+
+
+  <!-- ロードしたコード値のキャッシュ -->
+  <component name="codeCache" class="nablarch.core.cache.BasicStaticDataCache">
+    <property name="loader" ref="codeLoader"/>
+    <property name="loadOnStartup" value="${nablarch.codeCache.loadOnStartUp}"/>
+  </component>
+
+  <!-- コードの値と名称を取り扱うコンポーネント -->
+  <component name="codeManager"
+             class="nablarch.common.code.BasicCodeManager" autowireType="None">
+    <property name="codeDefinitionCache" ref="codeCache"/>
+  </component>
+
+</component-configuration>

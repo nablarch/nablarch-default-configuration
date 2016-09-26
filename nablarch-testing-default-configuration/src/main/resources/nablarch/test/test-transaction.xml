@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+
+  <!-- DbManagerの設定 -->
+  <component name="testFwTran"
+             class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+    <property name="dbTransactionName" value="test-fw"/>
+    <property name="connectionFactory" ref="connectionFactory"/>
+    <property name="transactionFactory" ref="transactionFactory"/>
+  </component>
+
+  <component name="testTran"
+             class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+    <property name="dbTransactionName" value="test"/>
+    <property name="connectionFactory" ref="connectionFactory"/>
+    <property name="transactionFactory" ref="transactionFactory"/>
+  </component>
+
+</component-configuration>

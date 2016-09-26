@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- セッション並行アクセス制御機能の設定 -->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  /component-configuration.xsd">
+
+  <!-- セッション並行アクセス制御ハンドラ -->
+  <component name="sessionConcurrentAccessHandler"
+             class="nablarch.fw.web.handler.SessionConcurrentAccessHandler">
+    <property name="concurrentAccessPolicy"
+              value="${nablarch.sessionConcurrentAccessHandler.concurrentAccessPolicy}"/>
+  </component>
+</component-configuration>
