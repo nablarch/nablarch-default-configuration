@@ -47,7 +47,7 @@ subprojects {
     testCompile 'com.nablarch.profile:nablarch-all-in-one:5u6'
     testCompile 'com.nablarch.framework:nablarch-testing:1.0.6'
     testCompile('com.nablarch.tool:nablarch-toolbox:1.0.2') {
-      exclude module: 'nablarch-all-in-one'
+      exclude group:'*', module: 'nablarch-all-in-one'
     }
     //testCompile (group: 'com.nablarch.framework', name: 'nablarch-backward-compatibility', version: '1.0.1')
     testCompile 'com.oracle:ucp:11.2.0.3.0'
