@@ -32,6 +32,8 @@
         <property name="mailBodyColumnName" value="${nablarch.mailRequestTable.mailBodyColumnName}" />
         <!--メール送信要求管理テーブルのメール送信パターンIDカラムの名前 -->
         <property name="mailSendPatternIdColumnName" value="${nablarch.mailRequestTable.mailSendPatternIdColumnName}" />
+        <!-- メール送信要求管理テーブルのメール送信バッチのプロセスIDのカラムの名前 -->
+        <property name="sendProcessIdColumnName" value="${nablarch.mailRequestTable.sendProcessIdColumnName}" />
     </component>
 
     <!-- メール送信先管理テーブルのスキーマ情報 -->

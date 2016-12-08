@@ -8,5 +8,6 @@
     <import file="nablarch/batch/mail/sender/mail-session.xml" />
     <import file="nablarch/common/mail/mail-config.xml" />
     <import file="nablarch/common/mail/mail-table-schema.xml" />
+    <import file="nablarch/common/mail/mail-multiprocess-transaction.xml" />
 
 </component-configuration>
