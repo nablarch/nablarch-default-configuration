@@ -12,6 +12,9 @@
         <!-- HTTPセッション上に保存するセッションストア -->
         <component class="nablarch.common.web.session.store.HttpSessionStore">
           <property name="expires" value="${nablarch.sessionManager.expires}"/>
+          <property name="stateEncoder">
+            <component class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder"/>
+          </property>
         </component>
         <!-- DB上に保存するセッションストア -->
         <component-ref name="dbStore" />
@@ -23,6 +26,9 @@
     
   <component name="dbStore" class="nablarch.common.web.session.store.DbStore">
     <property name="expires" value="${nablarch.sessionManager.expires}"/>
+    <property name="stateEncoder">
+      <component class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder"/>
+    </property>
     <property name="dbManager">
       <component class="nablarch.core.db.transaction.SimpleDbTransactionManager">
         <property name="dbTransactionName" value="dbStore" />
