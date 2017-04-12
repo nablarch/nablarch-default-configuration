@@ -34,6 +34,9 @@
     <entry key="yyyymmdd">
       <value-component class="nablarch.common.web.tag.YYYYMMDDFormatter"/>
     </entry>
+    <entry key="yyyymm">
+      <value-component class="nablarch.common.web.tag.YYYYMMFormatter"/>
+    </entry>
     <entry key="dateTime">
       <value-component class="nablarch.common.web.tag.DateTimeFormatter"/>
     </entry>
