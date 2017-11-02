@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.nablarch.configuration</groupId>
+  <artifactId>nablarch-testing-default-configuration</artifactId>
+  <version>1.0.2</version>
+
+  <parent>
+    <groupId>com.nablarch</groupId>
+    <artifactId>nablarch-parent</artifactId>
+    <version>1.0.0</version>
+    <relativePath/>
+  </parent>
+
+  <dependencies>
+    <!--
+     NAF,NTFは個別PJで明示的にcompile,testスコープに入れてもらうので、
+     ここではprovidedスコープにして推移的に依存関係が遷移しないようにする。
+    -->
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-common-exclusivecontrol</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+</project>
