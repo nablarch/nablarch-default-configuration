@@ -8,7 +8,7 @@ import nablarch.test.core.db.GenericJdbcDbInfo;
 
 /**
  * JDK5でOracleを使用する場合の{@link nablarch.test.core.db.DbInfo}実装クラス。
- * <p/>
+ * <p></p>
  * NVARCHAR2、NCHAR、NCLOBが{@link Types#OTHER}にマッピングする問題に対処する為に使用する。
  *
  * @author T.Kawasaki
@@ -19,7 +19,7 @@ public class Oracle15DbInfo extends GenericJdbcDbInfo {
 
     /**
      * {@inheritDoc}
-     * <p/>
+     * <p></p>
      * 取得したカラム型が{@link Types#OTHER}の場合、以下の処理を行う。
      * <ul>
      * <li>カラム型名を取得する。</li>

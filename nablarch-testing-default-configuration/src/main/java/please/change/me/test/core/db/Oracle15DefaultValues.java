@@ -3,7 +3,7 @@ package please.change.me.test.core.db;
 import nablarch.test.core.db.BasicDefaultValues;
 
 /**
- * JDK5でOracleを使用する場合の{@link nablarch.test.core.db.DefaultValues}実装クラス。<br/>
+ * JDK5でOracleを使用する場合の{@link nablarch.test.core.db.DefaultValues}実装クラス。
  * NVARCHAR2、NCHAR、NCLOBが{@link java.sql.Types#OTHER}にマッピングする問題に対処する為に使用する。
  *
  * @author T.Kawasaki
