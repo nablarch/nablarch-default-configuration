@@ -9,10 +9,9 @@
   <version>1.0.5</version>
 
   <parent>
-    <groupId>com.nablarch</groupId>
-    <artifactId>nablarch-parent</artifactId>
-    <version>5u12</version>
-    <relativePath/>
+    <groupId>com.nablarch.configuration</groupId>
+    <artifactId>nablarch-default-configuration</artifactId>
+    <version>1.0.0</version>
   </parent>
   
 
