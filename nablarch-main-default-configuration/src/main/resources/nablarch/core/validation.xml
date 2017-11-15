@@ -16,6 +16,11 @@
     <property name="maxAndMinMessageId" value="${nablarch.numberRangeValidator.maxAndMinMessageId}"/>
     <property name="minMessageId" value="${nablarch.numberRangeValidator.minMessageId}"/>
   </component>
+  <component name="decimalRangeValidator" class="nablarch.core.validation.validator.DecimalRangeValidator">
+    <property name="maxMessageId" value="${nablarch.decimalRangeValidator.maxMessageId}"/>
+    <property name="maxAndMinMessageId" value="${nablarch.decimalRangeValidator.maxAndMinMessageId}"/>
+    <property name="minMessageId" value="${nablarch.decimalRangeValidator.minMessageId}"/>
+  </component>
   <component name="lengthValidator" class="nablarch.core.validation.validator.LengthValidator">
     <property name="maxMessageId" value="${nablarch.lengthValidator.maxMessageId}"/>
     <property name="maxAndMinMessageId" value="${nablarch.lengthValidator.maxAndMinMessageId}"/>
@@ -38,6 +43,7 @@
       <list>
         <component-ref name="requiredValidator" />
         <component-ref name="numberRangeValidator" />
+        <component-ref name="decimalRangeValidator" />
         <component-ref name="lengthValidator" />
         <component-ref name="codeValueValidator" />
         <component-ref name="systemCharValidator" />
@@ -91,6 +97,7 @@
         <component-ref name="domainValidator" />
         <component-ref name="requiredValidator" />
         <component-ref name="numberRangeValidator" />
+        <component-ref name="decimalRangeValidator" />
         <component-ref name="lengthValidator" />
         <component-ref name="codeValueValidator" />
         <component-ref name="systemCharValidator" />
