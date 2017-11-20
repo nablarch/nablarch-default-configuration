@@ -1,0 +1,20 @@
+language: java
+branches:
+  only:
+  - master
+  - develop
+install: true
+jdk:
+- oraclejdk8
+cache:
+  directories:
+  - $HOME/.m2
+script:
+- git clone -b master https://github.com/nablarch/nablarch-ci-script.git $HOME/build-script/
+  && chmod +x $HOME/build-script/travis-ci/*.sh
+- $HOME/build-script/travis-ci/setup-oracle-jdk8.sh
+- $HOME/build-script/travis-ci/prepare_travis_settings.sh
+- $HOME/build-script/travis-ci/build-nablarch.sh -m deploy -p ci,dev-deploy
+notifications:
+  slack:
+    secure: d64vHiFMFVOxwqinnhMjCm4UymnCMoMTr9ytrzAgDt7u+sfoYSPrNvhCCzDnbJfwubg+YQBXEwuMh5eWU/B9bMkMhBrCwzBmyZGWZKJydfI3bRujydEIN6UItJroEdv4U1MWuLwNRm3cvBcRgrH1hrlFgjpW1Otws/WO8/hAABjbk75kj4GtXphStvHoaLIQpRYOZlk0e8oA+Gy7+fNjbvgfe9OOUdy6Vqe1qQ2V/MBezXYzGjMzXobmJWJ+AQO6MW8A5UXU3IEAnNiTA4bryLHtOQqbPkw4hIXdhhudXlAUG44ysT1/tzkClkG2hW5sfPzlUcSwot14fRK8oRcR5IJCGuJEGXBjoPjQxfKmGMDwylzk6f2jTYe3vy1OOBk08FHHNClQJ9ahH4yfqXbxjsHEB9MyGabVljhMXnY2ANmDRKiNRqB0haCVk4wBzSKg2v3/i/aTK7/mNrSzJ8ndS04ujlI7xdu7V7KqzTucCRJCc3IitZ5Fj+rN/0RpKEYCIg7tCrO0+SptlV1P4l+iaGTSavxdddMfz+16HjFYMCEbyVlAVrWgaE8i39IqKcORMyeSD7L+Q5VKCPAlsOSfnSWCosMoB3lvVnCD1DYnMsmL6q8ZG0svHHnt5TETsVuOkLZx66aPOQ2Ww6qx/A/o/4noerJZQF0cbptUMoifSdM=
