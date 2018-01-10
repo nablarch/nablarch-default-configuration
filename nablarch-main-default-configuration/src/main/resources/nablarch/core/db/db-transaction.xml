@@ -4,7 +4,7 @@
 <component-configuration
         xmlns="http://tis.co.jp/nablarch/component-configuration"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /component-configuration.xsd">
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
 
   <!-- データベース接続用設定 -->
   <!-- 処理方式ごとに異なるため、別途読み込みが必要 -->
