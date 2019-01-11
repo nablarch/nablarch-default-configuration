@@ -33,9 +33,14 @@
   </component>
 
   <!-- hiddenタグ上に保存するセッションストア -->
-  <component name="hiddenStore" class="nablarch.common.web.session.store.HiddenStore">
+  <component name="hiddenStore" class="com.nablarch.example.app.web.session.store.SecureHiddenStore">
     <property name="expires" value="${nablarch.sessionManager.expires}"/>
-    <property name="stateEncoder" ref="serializeEncryptEncoder" />
+    <property name="stateEncoder">
+      <component class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder"/>
+    </property>
+    <property name="encryptor">
+      <component class="nablarch.common.encryption.AesEncryptor"/>
+    </property>
   </component>
 
   <!-- HTTPセッションストア・DBストアの直列化に使用するコンポーネント -->
