@@ -33,7 +33,7 @@
   </component>
 
   <!-- hiddenタグ上に保存するセッションストア -->
-  <component name="hiddenStore" class="nablarch.common.web.session.store.HiddenStore">
+  <component name="hiddenStore" class="nablarch.common.web.session.store.SecureHiddenStore">
     <property name="expires" value="${nablarch.sessionManager.expires}"/>
     <property name="stateEncoder" ref="serializeEncryptEncoder" />
   </component>
