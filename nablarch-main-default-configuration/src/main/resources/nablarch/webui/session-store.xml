@@ -33,7 +33,7 @@
   </component>
 
   <!-- hiddenタグ上に保存するセッションストア -->
-  <component name="hiddenStore" class="com.nablarch.example.app.web.session.store.SecureHiddenStore">
+  <component name="hiddenStore" class="nablarch.common.web.session.store.SecureHiddenStore">
     <property name="expires" value="${nablarch.sessionManager.expires}"/>
     <property name="stateEncoder">
       <component class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder"/>
@@ -51,13 +51,6 @@
     <property name="dbTransactionName" value="dbStore" />
     <property name="transactionFactory" ref="transactionFactory" />
     <property name="connectionFactory" ref="connectionFactory" />
-  </component>
-
-  <!-- HIDDENストアの暗号化に使用するコンポーネント -->
-  <component name="serializeEncryptEncoder" class="nablarch.common.web.session.encoder.JavaSerializeEncryptStateEncoder">
-    <property name="encryptor">
-      <component name="hiddenStoreEncryptor" class="nablarch.common.encryption.AesEncryptor" />
-    </property>
   </component>
 
   <component name="sessionStoreHandler" class="nablarch.common.web.session.SessionStoreHandler">
