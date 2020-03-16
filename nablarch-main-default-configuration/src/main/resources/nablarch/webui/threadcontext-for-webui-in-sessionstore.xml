@@ -27,7 +27,6 @@
           <property name="defaultLanguage" value="${nablarch.languageAttribute.defaultLanguage}"/>
           <property name="supportedLanguages" value="${nablarch.languageAttribute.supportedLanguages}"/>
           <property name="cookieMaxAge" value="${nablarch.languageAttribute.cookieMaxAge}"/>
-          <!-- 90 days -->
         </component>
 
         <!-- 実行時ID -->
