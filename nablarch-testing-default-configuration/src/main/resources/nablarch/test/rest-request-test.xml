@@ -18,10 +18,10 @@ HTTPリクエスト単体テストを実施するための環境設定
 
   <component name="restMockHttpRequestBuilder" class="nablarch.fw.web.RestMockHttpRequestBuilder">
     <property name="defaultContentType" value="application/json"/>
-    <property name="httpBodyWriters">
+    <property name="bodyConverters">
       <list>
-        <component class="nablarch.fw.web.JacksonHttpBodyWriter"/>
-        <component class="nablarch.fw.web.StringHttpBodyWriter"/>
+        <component class="nablarch.fw.web.JacksonBodyConverter"/>
+        <component class="nablarch.fw.web.StringBodyConverter"/>
       </list>
     </property>
   </component>
