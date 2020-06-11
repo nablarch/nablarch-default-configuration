@@ -10,10 +10,11 @@ HTTPリクエスト単体テストを実施するための環境設定
   <!-- 環境設定ファイルの読み込み -->
   <config-file file="nablarch/test/http-request-test/http-request-test.config"/>
 
-  <component name="httpTestConfiguration"
-             class="nablarch.test.core.http.HttpTestConfiguration">
+  <component name="restTestConfiguration"
+             class="nablarch.test.core.http.RestTestConfiguration">
     <property name="webBaseDir" value="${nablarch.httpTestConfiguration.webBaseDir}"/>
     <property name="tempDirectory" value="${nablarch.httpTestConfiguration.tempDirectory}"/>
+    <property name="webFrontControllerKey" value="webFrontController"/>
   </component>
 
   <component name="restMockHttpRequestBuilder" class="nablarch.fw.web.RestMockHttpRequestBuilder">
