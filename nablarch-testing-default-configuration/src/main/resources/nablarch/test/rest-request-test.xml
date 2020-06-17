@@ -13,7 +13,6 @@ HTTPリクエスト単体テストを実施するための環境設定
   <component name="restTestConfiguration"
              class="nablarch.test.core.http.RestTestConfiguration">
     <property name="webBaseDir" value="${nablarch.httpTestConfiguration.webBaseDir}"/>
-    <property name="tempDirectory" value="${nablarch.httpTestConfiguration.tempDirectory}"/>
     <property name="webFrontControllerKey" value="${nablarch.httpTestConfiguration.webFrontControllerKey}"/>
   </component>
 
