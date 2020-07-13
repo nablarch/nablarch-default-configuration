@@ -4,32 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
 
-    <component name="lettuceSimpleRedisClient" class="nablarch.integration.redisstore.lettuce.LettuceSimpleRedisClient">
-        <property name="uri" value="${nablarch.lettuce.simple.uri}" />
-    </component>
-
-    <component name="lettuceMasterReplicaRedisClient" class="nablarch.integration.redisstore.lettuce.LettuceMasterReplicaRedisClient">
-        <property name="uri" value="${nablarch.lettuce.masterReplica.uri}" />
-    </component>
-
-    <component name="redisClusterUriListFactory" class="nablarch.core.repository.di.config.StringListComponentFactory">
-        <property name="values" value="${nablarch.lettuce.cluster.uriList}" />
-    </component>
-
-    <component name="lettuceClusterRedisClient" class="nablarch.integration.redisstore.lettuce.LettuceClusterRedisClient">
-        <property name="uriList" ref="redisClusterUriListFactory" />
-    </component>
-
-    <component name="lettuceRedisClientProvider" class="nablarch.integration.redisstore.lettuce.LettuceRedisClientProvider">
-        <property name="clientType" value="${nablarch.lettuce.clientType}" />
-        <property name="clientList">
-            <list>
-                <component-ref name="lettuceSimpleRedisClient" />
-                <component-ref name="lettuceMasterReplicaRedisClient" />
-                <component-ref name="lettuceClusterRedisClient" />
-            </list>
-        </property>
-    </component>
+    <import file="nablarch/webui/redisstore-lettuce-client.xml" />
 
     <component name="serializeEncoder" class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder" />
 
