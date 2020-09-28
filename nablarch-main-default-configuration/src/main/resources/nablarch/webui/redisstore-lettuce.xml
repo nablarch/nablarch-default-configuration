@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
+
+    <import file="nablarch/webui/redisstore-lettuce-client.xml" />
+
+    <component name="serializeEncoder" class="nablarch.common.web.session.encoder.JavaSerializeStateEncoder" />
+
+    <component name="redisStore" class="nablarch.integration.redisstore.lettuce.LettuceRedisStore">
+        <property name="expires" value="${nablarch.sessionManager.expires}"/>
+        <property name="stateEncoder" ref="serializeEncoder" />
+        <property name="client" ref="lettuceRedisClientProvider" />
+    </component>
+
+    <component name="sessionManager" class="nablarch.common.web.session.SessionManager">
+        <property name="defaultStoreName" value="${nablarch.sessionManager.defaultStoreName}" />
+        <property name="availableStores">
+            <list>
+                <!-- Redis上に保存するセッションストア -->
+                <component-ref name="redisStore" />
+            </list>
+        </property>
+    </component>
+
+    <component name="expiration" class="nablarch.integration.redisstore.lettuce.LettuceRedisManagedExpiration">
+        <property name="client" ref="lettuceRedisClientProvider" />
+    </component>
+
+    <component name="sessionStoreHandler" class="nablarch.common.web.session.SessionStoreHandler">
+        <property name="sessionManager" ref="sessionManager"/>
+        <property name="cookieName"   value="${nablarch.sessionStoreHandler.cookieName}"/>
+        <property name="cookiePath"   value="${nablarch.sessionStoreHandler.cookiePath}"/>
+        <property name="cookieSecure" value="${nablarch.sessionStoreHandler.cookieSecure}"/>
+        <property name="expiration" ref="expiration" />
+    </component>
+</component-configuration>
