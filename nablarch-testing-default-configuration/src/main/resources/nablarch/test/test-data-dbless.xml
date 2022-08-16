@@ -9,26 +9,11 @@
   <config-file file="nablarch/test/test-data.config"/>
 
   <!-- TestDataParser -->
-  <component name="testDataParser" class="nablarch.test.core.reader.BasicTestDataParser">
+  <component name="testDataParser" class="nablarch.test.core.reader.DbLessTestDataParser">
     <property name="testDataReader">
       <component name="xlsReaderForPoi" class="nablarch.test.core.reader.PoiXlsReader"/>
     </property>
-    <property name="dbInfo" ref="dbInfo"/>
     <property name="interpreters" ref="interpreters"/>
   </component>
-
-  <!-- DbInfo -->
-  <!-- 使用するDBに応じて別途インポートする -->
-  <!--<component name="dbInfo" class="please.change.me.test.core.db.Oracle16DbInfo">-->
-    <!--<property name="dataSource" ref="dataSource"/>-->
-    <!--<property name="schema" value="${nablarch.db.schema}"/>-->
-  <!--</component>-->
-
-  <!--
-  <component name="dbInfo" class="nablarch.test.core.db.GenericJdbcDbInfo">
-    <property name="dataSource" ref="dataSource"/>
-    <property name="schema" value="${nablarch.db.schema}"/>
-  </component>
-  -->
 
 </component-configuration>
