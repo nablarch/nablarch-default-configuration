@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
+
+  <config-file file="nablarch/test/test-data-interpreter.config"/>
+
+  <!-- テストデータ記法の解釈を行うクラス群 -->
+  <list name="interpreters">
+    <component-ref name="nullInterpreter"/>
+    <component-ref name="quotationTrimmer"/>
+    <component-ref name="dateTimeInterpreter"/>
+    <component-ref name="lineSeparatorInterpreter"/>
+    <component-ref name="compositeInterpreter"/>
+  </list>
+
+  <!-- null変換 -->
+  <component name="nullInterpreter" class="nablarch.test.core.util.interpreter.NullInterpreter"/>
+
+  <!-- 引用符を外す -->
+  <component name="quotationTrimmer" class="nablarch.test.core.util.interpreter.QuotationTrimmer"/>
+
+  <!-- システム時刻記法 -->
+  <component name="dateTimeInterpreter" class="nablarch.test.core.util.interpreter.DateTimeInterpreter">
+    <property name="systemTimeProvider" ref="systemTimeProvider"/>
+    <property name="setUpDateTime" value="${nablarch.dateTimeInterpreter.setUpDateTime}" />
+  </component>
+
+  <!-- 改行コードを変換する -->
+  <component name="lineSeparatorInterpreter" class="nablarch.test.core.util.interpreter.LineSeparatorInterpreter"/>
+
+  <!-- 文字列増幅 -->
+  <component name="compositeInterpreter" class="nablarch.test.core.util.interpreter.CompositeInterpreter">
+    <property name="interpreters">
+      <list>
+        <component class="nablarch.test.core.util.interpreter.BasicJapaneseCharacterInterpreter"/>
+      </list>
+    </property>
+  </component>
+
+</component-configuration>
