@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ループ機能の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
+
+  <!-- トランザクション制御無しのループ制御ハンドラ -->
+  <component name="loopHandler" class="nablarch.fw.handler.DbLessLoopHandler" />
+</component-configuration>
