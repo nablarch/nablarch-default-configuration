@@ -6,8 +6,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  https://nablarch.github.io/schema/component-configuration.xsd">
 
-    <component name="authorityEvaluator"
-               class="nablarch.common.authorization.BasicAuthorityEvaluator">
-        <property name="userAuthorityResolver" ref="userAuthorityResolver" />
+    <component name="roleEvaluator"
+               class="nablarch.common.authorization.role.BasicRoleEvaluator">
+        <property name="userRoleResolver" ref="userRoleResolver" />
     </component>
 </component-configuration>
