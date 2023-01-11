@@ -6,8 +6,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  https://nablarch.github.io/schema/component-configuration.xsd">
 
-    <import file="nablarch/common/authorization/authorization.xml" />
-    <component name="userAuthorityResolver"
-               class="nablarch.common.authorization.session.SessionStoreUserAuthorityResolver" />
+    <import file="nablarch/common/authorization/role/authorization.xml" />
+    <component name="userRoleResolver"
+               class="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver" />
 
 </component-configuration>
