@@ -7,6 +7,7 @@
 
   <!-- インターセプタの実行順定義 -->
   <list name="interceptorsOrder">
+    <value>nablarch.common.authorization.role.CheckRole</value>
     <value>nablarch.common.web.token.OnDoubleSubmission</value>
     <value>nablarch.common.web.token.UseToken</value>
     <value>nablarch.fw.web.interceptor.OnErrors</value>
