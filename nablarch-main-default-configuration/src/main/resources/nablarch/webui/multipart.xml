@@ -12,7 +12,6 @@
       <component class="nablarch.fw.web.upload.UploadSettings">
         <property name="autoCleaning" value="${nablarch.uploadSettings.autoCleaning}" />
         <property name="contentLengthLimit" value="${nablarch.uploadSettings.contentLengthLimit}" />
-        <property name="maxFileCount" value="${nablarch.uploadSettings.maxFileCount}" />
       </component>
     </property>
   </component>
