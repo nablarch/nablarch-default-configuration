@@ -6,7 +6,7 @@
 
   <groupId>com.nablarch.configuration</groupId>
   <artifactId>nablarch-default-configuration</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.1</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -18,7 +18,7 @@
   <parent>
     <groupId>com.nablarch</groupId>
     <artifactId>nablarch-parent</artifactId>
-    <version>5u21</version>
+    <version>5u22</version>
   </parent>
   
   <modules>

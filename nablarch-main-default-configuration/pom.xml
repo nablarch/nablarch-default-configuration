@@ -6,12 +6,12 @@
 
   <groupId>com.nablarch.configuration</groupId>
   <artifactId>nablarch-main-default-configuration</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.1</version>
 
   <parent>
     <groupId>com.nablarch.configuration</groupId>
     <artifactId>nablarch-default-configuration</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
   </parent>
   
 
