@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  メール送信時のステータス更新で使用するトランザクション定義ファイル
+-->
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
+
+    <component name="statusUpdateTransaction" class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="transactionFactory" ref="transactionFactory" />
+        <property name="dbTransactionName" value="statusUpdateTransaction" />
+    </component>
+
+</component-configuration>
