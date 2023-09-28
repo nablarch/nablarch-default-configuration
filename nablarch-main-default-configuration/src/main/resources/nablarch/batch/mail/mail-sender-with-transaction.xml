@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- メール送信機能の設定 -->
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
+
+    <import file="nablarch/batch/mail/mail-sender.xml" />
+    <import file="nablarch/common/mail/mail-status-update-transaction.xml" />
+
+</component-configuration>
