@@ -4,14 +4,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.nablarch.configuration</groupId>
   <artifactId>nablarch-main-default-configuration</artifactId>
-  <version>1.5.0</version>
 
   <parent>
     <groupId>com.nablarch.configuration</groupId>
     <artifactId>nablarch-default-configuration</artifactId>
-    <version>5u23</version>
+    <version>5u24</version>
   </parent>
   
 
