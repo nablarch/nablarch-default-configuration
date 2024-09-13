@@ -6,12 +6,12 @@
 
   <groupId>com.nablarch.configuration</groupId>
   <artifactId>nablarch-testing-default-configuration</artifactId>
-  <version>6-NEXT-SNAPSHOT</version>
+  <version>6u2</version>
 
   <parent>
     <groupId>com.nablarch.configuration</groupId>
     <artifactId>nablarch-default-configuration</artifactId>
-    <version>6-NEXT-SNAPSHOT</version>
+    <version>6u2</version>
   </parent>
 
   <dependencies>
