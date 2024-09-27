@@ -4,12 +4,14 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.nablarch.configuration</groupId>
   <artifactId>nablarch-testing-default-configuration</artifactId>
+  <version>5u25</version>
 
   <parent>
     <groupId>com.nablarch.configuration</groupId>
     <artifactId>nablarch-default-configuration</artifactId>
-    <version>5u24</version>
+    <version>5u25</version>
   </parent>
 
   <dependencies>
